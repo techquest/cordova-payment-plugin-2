@@ -41,8 +41,7 @@ The first step to ​using the plugin is to register as a merchant. This is desc
 
 Replace clientId and clientSecret in the command below with your clientId and clientSecret
 ```terminal
-cordova plugin add https://github.com/techquest/cordova-payment-plugin.git --variable CLIENT_ID=clientId --variable CLIENT_SECRET=clientSecret
-```
+cordova plugin add https://github.com/techquest/cordova-payment-plugin.git
 
 * Add ```android``` platform. Make sure to add the platform **after** adding the plugin.
 

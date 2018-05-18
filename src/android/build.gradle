@@ -1,11 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
-
-    defaultConfig {        
-        minSdkVersion 15
+    
+	defaultConfig {        
+        minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -22,19 +20,34 @@ android {
     packagingOptions{
         exclude 'classes.dex'
     }
+	
+	allprojects {
+    repositories {
+        maven {
+            url  'http://dl.bintray.com/techquest/maven-repo'
+        }
+        maven {
+            url 'https://jitpack.io'
+        }
+        maven {
+            url 'https://maven.fabric.io/public'
+        }
+        jcenter()
+    }
+	}
 }
 
 repositories {
     jcenter()
     flatDir {
-        dirs 'libs'
+        dirs 'src/main/libs'
     }
 }
 
-dependencies {    
-    compile fileTree(dir: 'aarfile', include: ['*.jar'])
-	compile(name:'payment-android-release', ext:'aar')
+dependencies {
     compile(name:'deviceprint-release-2.2.0', ext:'aar')
+	compile 'com.interswitchng:payment-android:1.0.0'
+	compile 'com.google.code.gson:gson:2.3.1'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
 }
