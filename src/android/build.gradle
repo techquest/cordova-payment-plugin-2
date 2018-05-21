@@ -45,7 +45,7 @@ repositories {
 }
 
 dependencies {
-    compile(name:'deviceprint-release-2.2.0', ext:'aar')
+    compile 'device-print:device-print:2.2.0'
 	compile 'com.interswitchng:payment-android:1.0.0'
 	compile 'com.google.code.gson:gson:2.3.1'
     compile 'com.android.support:appcompat-v7:23.1.1'

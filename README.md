@@ -60,7 +60,7 @@ cordova platform add android
 
 * Add cordova payment plugin
 ```
-cordova plugin add https://github.com/techquest/cordova-payment-plugin.git
+cordova plugin add https://github.com/techquest/cordova-payment-plugin-2.git
 ```
 
 * Add ```ios``` platform. Make sure to add the platform **after** adding the plugin.
