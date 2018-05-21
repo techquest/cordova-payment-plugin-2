@@ -61,8 +61,8 @@ public class PaymentPlugin extends CordovaPlugin  {
             return true;
         }
         else {
-			String clientId = (String) CacheUtils.read(KEY_CLIENT_ID, String.class, activity);
-			String clientSecret = (String) CacheUtils.read(KEY_CLIENT_SECRET, String.class, activity);
+			final String clientId = (String) CacheUtils.read(KEY_CLIENT_ID, String.class, activity);
+			final String clientSecret = (String) CacheUtils.read(KEY_CLIENT_SECRET, String.class, activity);
 			final PayWithOutUI payWithOutUI = new PayWithOutUI(activity, clientId, clientSecret);
 			final PayWithUI payWithUI = new PayWithUI(activity, clientId, clientSecret);
 			if(action.equals("AuthorizePurchase")){
@@ -263,8 +263,8 @@ public class PaymentPlugin extends CordovaPlugin  {
     }
     public void userInformation(final String action, final JSONArray args, final CallbackContext callbackContext) throws JSONException{
         activity = this.cordova.getActivity();
-		String clientId = (String) CacheUtils.read(KEY_CLIENT_ID, String.class, activity);
-		String clientSecret = (String) CacheUtils.read(KEY_CLIENT_SECRET, String.class, activity);
+		final String clientId = (String) CacheUtils.read(KEY_CLIENT_ID, String.class, activity);
+		final String clientSecret = (String) CacheUtils.read(KEY_CLIENT_SECRET, String.class, activity);
         activity.runOnUiThread(new Runnable() {
             public void run() {
                 try {
