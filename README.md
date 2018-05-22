@@ -87,6 +87,8 @@ During development of your app, you should use the Plugin in sandbox mode to ena
 * Use Sandbox Client Id and Client Secret got from the Sandbox Tab of the Developer Console after signup (usually you have to wait for 5 minutes after signup for you to see the Sandbox details) everywhere you are required to supply Client Id and Client Secret in the remainder of this documentation              
 * In your code, override the api base as follows
 
+* **Important**: Perform the above step at your application startup to prevent async timing issues
+
 ```javascript
     function init(){
         var userDetails = {
@@ -96,6 +98,8 @@ During development of your app, you should use the Plugin in sandbox mode to ena
             passportApi : "https://sandbox.interswitchng.com/passport"
         };
         var initial = PaymentPlugin.init(userDetails);
+		
+		* **Important**: If you wish to call the plugin methods immediately after initialization you will need instead do PaymentPlugin.init(userDetails, function (response){ PaymentPlugin.methodToCall()}, function(error) {})
     }
 ```
 
