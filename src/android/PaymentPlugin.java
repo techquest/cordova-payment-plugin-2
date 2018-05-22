@@ -45,7 +45,8 @@ public class PaymentPlugin extends CordovaPlugin  {
         super.initialize(cordova, webView);
         activity =  cordova.getActivity();
     }
-	
+
+    @Override
     public boolean execute(final String action, final JSONArray args, final CallbackContext callbackContext) throws JSONException {
 		if (action.equals("Init")) {
             cordova.getActivity().runOnUiThread(new Runnable() {
@@ -326,8 +327,9 @@ public class PaymentPlugin extends CordovaPlugin  {
 				String clientId = args.getJSONObject(0).getString("clientId");
 				String clientSecret = args.getJSONObject(0).getString("clientSecret");
                 CacheUtils.update(KEY_CLIENT_ID, clientId, activity);
-				CacheUtils.update(KEY_CLIENT_SECRET, clientId, activity);
+				CacheUtils.update(KEY_CLIENT_SECRET, clientSecret, activity);
 				options = RequestOptions.builder().setClientId(clientId).setClientSecret(clientSecret).build();
+				callbackContext.success("success");
             }
         }
         catch (JSONException jsonException){

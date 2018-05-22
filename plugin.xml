@@ -24,7 +24,8 @@
         <source-file src="src/android/PayWithOutUI.java" target-dir="src/" />
         <source-file src="src/android/PayWithUI.java" target-dir="src/" />
 		<source-file src="src/android/CacheUtils.java" target-dir="src/" />
-
+		<source-file src="src/android/SerializablePaymentCallback.java" target-dir="src/" />
+		
         <framework custom="true" src="src/android/build.gradle" type="gradleReference" />
     </platform>
 
