@@ -103,7 +103,7 @@ During development of your app, you should use the Plugin in sandbox mode to ena
 
 * Follow the remaining steps in the documentation.
 * call the init function inside the onDeviceReady function of your cordova app
-* NOTE: When going into Production mode, use the Client Id and the Client Secret got from the Production Tab of Developer Console instead.
+* NOTE: When going into Production mode, use the Client Id and the Client Secret got from the Production Tab of Developer Console instead, and remove the overriden paymentApi, and passportApi in the init details
 
 ## <a name='SDKWithUI'></a>Using the Plugin with UI (In PCI-DSS Scope: No )
 
