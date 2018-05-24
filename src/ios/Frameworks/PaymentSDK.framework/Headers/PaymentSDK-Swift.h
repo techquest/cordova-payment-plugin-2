@@ -232,6 +232,7 @@ SWIFT_CLASS("_TtC10PaymentSDK24AuthorizePurchaseRequest")
 @property (nonatomic, copy) NSString * _Nonnull authData;
 @property (nonatomic, copy) NSString * _Nonnull transactionId;
 @property (nonatomic, copy) NSString * _Nonnull eciFlag;
+@property (nonatomic, copy) NSString * _Nullable thirdPartyTransactionType;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -381,7 +382,7 @@ SWIFT_CLASS("_TtC10PaymentSDK3Pay")
 
 SWIFT_CLASS("_TtC10PaymentSDK11PayWithCard")
 @interface PayWithCard : NSObject
-- (nonnull instancetype)initWithClientId:(NSString * _Nonnull)clientId clientSecret:(NSString * _Nonnull)clientSecret customerId:(NSString * _Nonnull)customerId description:(NSString * _Nonnull)description amount:(NSString * _Nonnull)amount currency:(NSString * _Nonnull)currency OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithClientId:(NSString * _Nonnull)clientId clientSecret:(NSString * _Nonnull)clientSecret customerId:(NSString * _Nonnull)customerId description:(NSString * _Nonnull)description amount:(NSString * _Nonnull)amount currency:(NSString * _Nonnull)currency thirdPartyTransactionType:(NSString * _Nullable)thirdPartyTransactionType OBJC_DESIGNATED_INITIALIZER;
 - (UIViewController * _Nonnull)start:(void (^ _Nonnull)(PurchaseResponse * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
@@ -464,9 +465,9 @@ SWIFT_CLASS("_TtC10PaymentSDK21PaymentStatusResponse")
 SWIFT_CLASS("_TtC10PaymentSDK15PurchaseRequest")
 @interface PurchaseRequest : NSObject
 @property (nonatomic, copy) NSString * _Nonnull authData;
-- (nonnull instancetype)initWithCustomerId:(NSString * _Nullable)customerId amount:(NSString * _Nonnull)amount pan:(NSString * _Nonnull)pan pin:(NSString * _Nonnull)pin expiryDate:(NSString * _Nonnull)expiryDate cvv2:(NSString * _Nonnull)cvv2 transactionRef:(NSString * _Nonnull)transactionRef currency:(NSString * _Nonnull)currency requestorId:(NSString * _Nullable)requestorId;
-- (nonnull instancetype)initWithCustomerId:(NSString * _Nullable)customerId amount:(NSString * _Nonnull)amount tokenExpiryDate:(NSString * _Nonnull)tokenExpiryDate payableId:(NSString * _Nonnull)payableId transactionRef:(NSString * _Nonnull)transactionRef currency:(NSString * _Nonnull)currency token:(NSString * _Nonnull)token splitSettlementInformation:(NSArray<SplitSettlementAccount *> * _Nullable)splitSettlementInformation isRecurrent:(BOOL)isRecurrent;
-- (nonnull instancetype)initWithCustomerId:(NSString * _Nullable)customerId amount:(NSString * _Nonnull)amount pan:(NSString * _Nonnull)pan pin:(NSString * _Nonnull)pin expiryDate:(NSString * _Nonnull)expiryDate cvv2:(NSString * _Nonnull)cvv2 transactionRef:(NSString * _Nonnull)transactionRef currency:(NSString * _Nonnull)currency requestorId:(NSString * _Nullable)requestorId splitSettlementInformation:(NSArray<SplitSettlementAccount *> * _Nullable)splitSettlementInformation OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithCustomerId:(NSString * _Nullable)customerId amount:(NSString * _Nonnull)amount pan:(NSString * _Nonnull)pan pin:(NSString * _Nonnull)pin expiryDate:(NSString * _Nonnull)expiryDate cvv2:(NSString * _Nonnull)cvv2 transactionRef:(NSString * _Nonnull)transactionRef currency:(NSString * _Nonnull)currency requestorId:(NSString * _Nullable)requestorId thirdPartyTransactionType:(NSString * _Nullable)thirdPartyTransactionType;
+- (nonnull instancetype)initWithCustomerId:(NSString * _Nullable)customerId amount:(NSString * _Nonnull)amount tokenExpiryDate:(NSString * _Nonnull)tokenExpiryDate payableId:(NSString * _Nonnull)payableId transactionRef:(NSString * _Nonnull)transactionRef currency:(NSString * _Nonnull)currency token:(NSString * _Nonnull)token splitSettlementInformation:(NSArray<SplitSettlementAccount *> * _Nullable)splitSettlementInformation isRecurrent:(BOOL)isRecurrent thirdPartyTransactionType:(NSString * _Nullable)thirdPartyTransactionType;
+- (nonnull instancetype)initWithCustomerId:(NSString * _Nullable)customerId amount:(NSString * _Nonnull)amount pan:(NSString * _Nonnull)pan pin:(NSString * _Nonnull)pin expiryDate:(NSString * _Nonnull)expiryDate cvv2:(NSString * _Nonnull)cvv2 transactionRef:(NSString * _Nonnull)transactionRef currency:(NSString * _Nonnull)currency requestorId:(NSString * _Nullable)requestorId splitSettlementInformation:(NSArray<SplitSettlementAccount *> * _Nullable)splitSettlementInformation thirdPartyTransactionType:(NSString * _Nullable)thirdPartyTransactionType OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
