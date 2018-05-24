@@ -51,12 +51,17 @@ import SwiftyJSON
         
         let customerIdAsString = Utils.getStringFromDict(firstArg!, theKey: "customerId")
         let amountAsString = Utils.getStringFromDict(firstArg!, theKey: "amount")
+        let thirdPartyTransactionType = Utils.getStringFromDict(firstArg!, theKey: "thirdPartyTransactionType")
         //--
         let theCurrency = firstArg?["currency"] as? String
         let theDescription = firstArg?["description"] as? String
+        if thirdPartyTransactionType != "" {
+            PayWithUI.payWithCard(self, command: cdvCommand, theCustomerId: customerIdAsString, theCurrency: theCurrency!, theDescription: theDescription!, theAmount: amountAsString, thirdPartyTransactionType: thirdPartyTransactionType)
+        } else {
+            PayWithUI.payWithCard(self, command: cdvCommand, theCustomerId: customerIdAsString, theCurrency: theCurrency!, theDescription: theDescription!, theAmount: amountAsString)
+        }
         
-        PayWithUI.payWithCard(self, command: cdvCommand, theCustomerId: customerIdAsString, theCurrency: theCurrency!,
-                              theDescription: theDescription!, theAmount: amountAsString)
+        PayWithUI.payWithCard(self, command: cdvCommand, theCustomerId: customerIdAsString, theCurrency: theCurrency!, theDescription: theDescription!, theAmount: amountAsString, thirdPartyTransactionType: thirdPartyTransactionType)
     }
     
     func PayWithWallet(_ cdvCommand: CDVInvokedUrlCommand) {

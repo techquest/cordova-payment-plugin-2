@@ -59,12 +59,12 @@ open class PayWithUI {
     }
     
     class func payWithCard(_ cdvPlugin: PaymentPlugin, command: CDVInvokedUrlCommand,
-                           theCustomerId: String, theCurrency:String, theDescription:String, theAmount:String) {
+                           theCustomerId: String, theCurrency:String, theDescription:String, theAmount:String, thirdPartyTransactionType:String? = nil) {
         PayWithUI.cdvPlugin = cdvPlugin
         
         let payWithCard = PayWithCard(clientId: cdvPlugin.clientId, clientSecret: cdvPlugin.clientSecret,
                                       customerId: theCustomerId, description: theDescription,
-                                      amount:theAmount, currency:theCurrency)
+                                      amount:theAmount, currency:theCurrency, thirdPartyTransactionType: thirdPartyTransactionType)
         
         let vc = payWithCard.start({(purchaseResponse: PurchaseResponse?, error: Error?) in
             guard error == nil else {
