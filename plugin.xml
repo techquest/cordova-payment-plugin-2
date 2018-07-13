@@ -29,7 +29,7 @@
         <framework custom="true" src="src/android/build.gradle" type="gradleReference" />
     </platform>
 
-
+    <!-- ios -->
     <platform name='ios'>
         <config-file target='config.xml' parent='/*'>
             <feature name='PaymentPlugin'>
@@ -41,10 +41,10 @@
         <source-file src='src/ios/PayWithUI.swift'/>
         <source-file src='src/ios/Utils.swift'/>
 
-        <framework src="src/ios/Frameworks/PaymentSDK.framework" custom="true"/>
-        <framework src="src/ios/Frameworks/Alamofire.framework" custom="true"/>
-        <framework src="src/ios/Frameworks/CryptoSwift.framework" custom="true"/>
-        <framework src="src/ios/Frameworks/SwiftyJSON.framework" custom="true"/>
+        <framework src="src/ios/Frameworks/PaymentSDK.framework" custom="true" embed="true"/>
+        <framework src="src/ios/Frameworks/Alamofire.framework" custom="true" embed="true"/>
+        <framework src="src/ios/Frameworks/CryptoSwift.framework" custom="true" embed="true"/>
+        <framework src="src/ios/Frameworks/SwiftyJSON.framework" custom="true" embed="true"/>
         <preference name="UseSwiftLanguageVersion" value="4"/>
         <preference name="UseSwiftLanguageVersion" value="4" default="4"/>
         <preference name="USESWIFTLANGUAGEVERSION" value="4" default="4"/>

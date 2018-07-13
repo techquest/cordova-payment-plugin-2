@@ -69,14 +69,6 @@ cordova plugin add https://github.com/techquest/cordova-payment-plugin-2.git
 cordova platform add ios
 ```
 
-* In ```Finder```, go to the **YourCordovaApp/platforms/ios** directory. Open the .xcodeproj file in XCode. A dialog may appear asking: Convert to latest Swift Syntax? Click the **Cancel** button.
-
-* In ```Finder```, go to the ```/platforms/ios/<NameOfApp>/Plugins/com.interswitchng.sdk.payment``` directory. You should see a number of files like **.framework** file.
-
-* Drag all the ​ **.framework** files from ```Finder``` to XCode's **Embedded Binaries** section for your app's **TARGETS** settings. This will be found under the ```General``` tab.
-
-* In the dialog that appears, make sure ```Copy items if needed``` is unchecked.
-
 * **Important**: You can only test the SDK on an actual device.
 
 ### <a name='SandBoxMode'></a> Using The Plugin in Sandbox Mode
