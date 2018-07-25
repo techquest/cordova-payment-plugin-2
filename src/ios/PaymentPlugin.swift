@@ -30,7 +30,7 @@ import SwiftyJSON
         }
 
         let result =  CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "Well this seems to be fine :D")
-        self.commandDelegate .send(result, callbackId: command.callbackId)
+        self.commandDelegate.send(result, callbackId: command.callbackId)
     }
     
     
