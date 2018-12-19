@@ -101,17 +101,37 @@ public class PayWithUI extends CordovaPlugin{
                         builder.setSplitSettlementInformation(split.toArray(new SplitSettlement[split.size()]));
                     }
                     options = builder.build();
-                    PayWithCard pay = new PayWithCard(activity, customerId, description, amount, currency, options, new SerializablePaymentCallback<PurchaseResponse>(new IswCallback<PurchaseResponse>() {
-                        @Override
-                        public void onError(Exception error) {
-                            callbackContext.error(error.getMessage());
-                        }
+                    String transactionRef = null;
+                    String KEY_TRANSACTION_REF = "transactionRef";
+                    if(params.has(KEY_TRANSACTION_REF)) {
+                        transactionRef=params.getString(KEY_TRANSACTION_REF);
+                    }
+                    PayWithCard pay;
+                    if(transactionRef != null && !transactionRef.isEmpty()) {
+                        pay = new PayWithCard(activity, customerId, description, amount, currency, transactionRef, options, new SerializablePaymentCallback<PurchaseResponse>(new IswCallback<PurchaseResponse>() {
+                            @Override
+                            public void onError(Exception error) {
+                                callbackContext.error(error.getMessage());
+                            }
 
-                        @Override
-                        public void onSuccess(PurchaseResponse response) {
-                            PluginUtils.getPluginResult(callbackContext, response);
-                        }
-                    }), false, thirdPartyTransferType);
+                            @Override
+                            public void onSuccess(PurchaseResponse response) {
+                                PluginUtils.getPluginResult(callbackContext, response);
+                            }
+                        }), false, thirdPartyTransferType);
+                    }else{
+                        pay = new PayWithCard(activity, customerId, description, amount, currency, options, new SerializablePaymentCallback<PurchaseResponse>(new IswCallback<PurchaseResponse>() {
+                            @Override
+                            public void onError(Exception error) {
+                                callbackContext.error(error.getMessage());
+                            }
+
+                            @Override
+                            public void onSuccess(PurchaseResponse response) {
+                                PluginUtils.getPluginResult(callbackContext, response);
+                            }
+                        }), false, thirdPartyTransferType);
+                    }
                     pay.start();
                 } catch (Exception ex) {
                     callbackContext.error(ex.toString());
