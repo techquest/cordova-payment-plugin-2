@@ -111,7 +111,8 @@ During development of your app, you should use the Plugin in sandbox mode to ena
         amount : 100, // Amount in Naira
         customerId : 1234567890, // Optional email, mobile no, BVN etc to uniquely identify the customer.
         currency : "NGN", // ISO Currency code
-        description : "Purchase Phone" // Description of product to purchase
+        description : "Purchase Phone", // Description of product to purchase
+        transactionRef : "your TransactionRef" //[optional] If not supplied, a random transactionRef will be generated
     }
 ```
 
