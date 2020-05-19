@@ -14,11 +14,11 @@ open class PayWithUI {
     
     
     class func payWithCardOrWallet(_ cdvPlugin: PaymentPlugin, command: CDVInvokedUrlCommand,
-                                   theCustomerId: String, theCurrency:String, theDescription:String, theAmount:String) {
+                                   theCustomerId: String, theCurrency:String, theDescription:String, theAmount:String, theTransactionRef: String? = '') {
         PayWithUI.cdvPlugin = cdvPlugin
         
         let payWithCardOrWallet = Pay(clientId: cdvPlugin.clientId, clientSecret: cdvPlugin.clientSecret,
-                                      customerId: theCustomerId, description: theDescription, amount:theAmount, currency:theCurrency)
+                                      customerId: theCustomerId, description: theDescription, amount:theAmount, currency:theCurrency, transactionRef: theTransactionRef)
         
         let vc = payWithCardOrWallet.start({(purchaseResponse: PurchaseResponse?, error: Error?) in
             guard error == nil else {
