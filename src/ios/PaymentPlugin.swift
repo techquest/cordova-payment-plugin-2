@@ -41,13 +41,13 @@ import SwiftyJSON
         
         let customerIdAsString = Utils.getStringFromDict(firstArg!, theKey: "customerId")
         let amountAsString = Utils.getStringFromDict(firstArg!, theKey: "amount")
-        let theTransactionRef = Utils.getStringFromDict(firstArg!, theKey: "transactionRef")
+        // let theTransactionRef = Utils.getStringFromDict(firstArg!, theKey: "transactionRef")
         //--
         let theCurrency = firstArg?["currency"] as? String
         let theDescription = firstArg?["description"] as? String
         
         PayWithUI.payWithCardOrWallet(self, command: cdvCommand, theCustomerId: customerIdAsString, theCurrency: theCurrency!,
-                                      theDescription: theDescription!, theAmount: amountAsString, transactionRef: theTransactionRef)
+                                      theDescription: theDescription!, theAmount: amountAsString)
     }
     
     @objc func PayWithCard(_ cdvCommand: CDVInvokedUrlCommand) {

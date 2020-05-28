@@ -150,7 +150,8 @@ public class PayWithUI extends CordovaPlugin{
                     String currency = params.getString("currency");
                     String description = params.getString("description");
                     String amount = params.getString("amount");
-                    PayWithWallet payWithWallet = new PayWithWallet(activity, customerId, description, amount, currency, options, new SerializablePaymentCallback<PurchaseResponse>(new IswCallback<PurchaseResponse>() {
+                    String transactionRef = params.getString("transactionRef");
+                    PayWithWallet payWithWallet = new PayWithWallet(activity, customerId, description, amount, currency, transactionRef, options, new SerializablePaymentCallback<PurchaseResponse>(new IswCallback<PurchaseResponse>() {
                         @Override
                         public void onError(Exception error) {
                             callbackContext.error(error.getMessage());
